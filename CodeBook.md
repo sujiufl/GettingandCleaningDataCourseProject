@@ -6,8 +6,7 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain. S
 
-For each record it is provided:
-======================================
+### For each record it is provided:
 
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
 - Triaxial Angular velocity from the gyroscope. 
@@ -15,8 +14,7 @@ For each record it is provided:
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
 
-Feature Selection 
-=================
+### Feature Selection 
 
 The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
@@ -45,8 +43,7 @@ These signals were used to estimate variables of the feature vector for each pat
 *fBodyGyroMag
 *fBodyGyroJerkMag
 
-The set of variables that were estimated from these signals are: 
-===============================================================
+### The set of variables that were estimated from these signals are: 
 
 -mean(): Mean value
 -std(): Standard deviation
@@ -66,7 +63,9 @@ The set of variables that were estimated from these signals are:
 -bandsEnergy(): Energy of a frequency interval within the 64 bins of the FFT of each window.
 -angle(): Angle between to vectors.
 
-Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
+### Additional vectors obtained by averaging the signals in a signal window sample. 
+
+These are used on the angle() variable:
 
 -gravityMean
 -tBodyAccMean
