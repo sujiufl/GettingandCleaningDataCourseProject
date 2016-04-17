@@ -1,5 +1,6 @@
+#========================================================================================================
 ## Getting and Cleaning Data Course Project
-#########################################################################################################
+#========================================================================================================
 ## file URL
 datafileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 
@@ -15,7 +16,7 @@ unzip("./data/accelerometerdata.zip")
 ## load the libraries
 library(dplyr)
 library(data.table)
-#########################################################################################################
+#========================================================================================================
 ## ------ Read all the Data files---------
 
 ## Read Activity_lables.txt file
@@ -38,8 +39,8 @@ x_train <- read.table("./UCI HAR Dataset/train/X_train.txt", sep = "")
 y_train <- read.table("./UCI HAR Dataset/train/y_train.txt", sep = "")
 subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt", sep = "")
 
-#########################################################################################################
-## --- 1.  Merge the training and the test sets to create one data set ---
+#========================================================================================================
+## Part 1.  Merge the training and the test sets to create one data set
 
 # rbind x_test and x_train to create x_data
 x_data <- rbind(x_train, x_test)
@@ -57,8 +58,8 @@ combined_data <- cbind(x_data, y_data, subject_data)
 combined_data_lable <- rbind(features, c(562, "ActivityId"), c(563, "Subject")) [, 2]
 names(combined_data) <- combined_data_lable
 
-#########################################################################################################
-## --- 2. Extracts only the measurements on the mean and standard deviation for each measurement ---
+#========================================================================================================
+## Part 2. Extracts only the measurements on the mean and standard deviation for each measurement
 
 # get only columns with 'mean' or 'std' in features
 Only_MeanStdDev_MeasMent <- grep("-(mean|std)\\(\\)", features[, 2])
@@ -66,8 +67,8 @@ Only_MeanStdDev_MeasMent <- grep("-(mean|std)\\(\\)", features[, 2])
 # get only the columns in combined_data with 'mean' and 'std' 
 combined_data_MeanStd <- combined_data[, c(Only_MeanStdDev_MeasMent, 562, 563)]
 
-#########################################################################################################
-## --- 3. Uses descriptive activity names to name the activities in the data set ---
+#========================================================================================================
+## Part 3. Uses descriptive activity names to name the activities in the data set
 
 # merge combined_data_MeanStd with activityLables by "ActivityId" 
 combined_data_MeanStd <- merge(combined_data_MeanStd, activityLables, by = "ActivityId", match = "first")
@@ -75,8 +76,8 @@ combined_data_MeanStd <- merge(combined_data_MeanStd, activityLables, by = "Acti
 # disregard the redundant Column 1: ActivityID 
 combined_data_MeanStd <- combined_data_MeanStd[ , -1]
 
-#########################################################################################################
-## --- 4. Appropriately labels the data set with descriptive variable names ----
+#========================================================================================================
+## Part 4. Appropriately labels the data set with descriptive variable names
 names(combined_data_MeanStd)
 
 names(combined_data_MeanStd) <- gsub("^t","time", names(combined_data_MeanStd))
@@ -97,12 +98,12 @@ names(combined_data_MeanStd) <- gsub('mean', 'Mean', names(combined_data_MeanStd
 
 names(combined_data_MeanStd) <- gsub('std', 'StandardDeviation', names(combined_data_MeanStd))
 
-#########################################################################################################
-## --- 5. From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject ---
+#========================================================================================================
+## Part 5. From the data set in step 4, create a second, independent tidy data set with the average of each variable for each activity and each subject ---
 library(plyr)
 combined_data_MeanStd_avg <- ddply(combined_data_MeanStd, c("Subject", "ActivityName"), numcolwise(mean))
 write.table(combined_data_MeanStd_avg, "average_tidydata.txt", row.names = FALSE)
-#########################################################################################################
+#========================================================================================================
 
 
 
