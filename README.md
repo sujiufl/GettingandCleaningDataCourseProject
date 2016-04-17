@@ -2,12 +2,12 @@
 
 This is my submission for the Coursera Course on Getting and Cleaning Data - Course Project.
 
-## There are totally three files submitted: 
+### There are totally three files submitted: 
 1. run_analysis.R 
 2. CodeBook.md
 3. average_tidydata.txt
 
-### The run_analysis.R script does the following:
+The **run_analysis.R** script does the following:
 
 1. Downloads the data for the project into the working directory.
 2. Reads all the relevant data files from the 'test' and 'train' directories.
@@ -17,6 +17,6 @@ This is my submission for the Coursera Course on Getting and Cleaning Data - Cou
 6. Appropriately labels the data set with descriptive variable names.
 7. From the data set in step 6, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-### The CodeBook.md file is the CodeBook for the data indicating all the variables and summaries calculated, along with units, and any other relevant information.
+The **CodeBook.md** file is the CodeBook for the data indicating all the variables and summaries calculated, along with units, and any other relevant information.
 
-### average_tidydata.txt is the file which contains the independent tidy data set with the average of each variable for each activity and each subject (part 5. of the project).
+The **average_tidydata.txt** is the file which contains the independent tidy data set with the average of each variable for each activity and each subject (part 5. of the project).
