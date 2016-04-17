@@ -1,7 +1,11 @@
-# GettingandCleaningDataCourseProject
+# Getting and Cleaning Data - Course Project
 This is my submission for the Coursera Course on Getting and Cleaning Data - Course Project
+There are totally three files submitted, 
+1. run_analysis.R 
+2. CodeBook.md
+3. average_tidydata.txt
 
-## The run_analysis.R script does the following:
+The run_analysis.R script does the following:
 1. Downloads the data for the project into the working directory.
 2. Reads all the relevant data files from the 'test' and 'train' directories.
 3. Merges the training and the test sets to create one data set.
