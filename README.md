@@ -1,6 +1,6 @@
 # Getting and Cleaning Data - Course Project
 This is my submission for the Coursera Course on Getting and Cleaning Data - Course Project
-There are totally three files submitted, 
+There are totally three files submitted: 
 1. run_analysis.R 
 2. CodeBook.md
 3. average_tidydata.txt
